@@ -54,6 +54,7 @@ class Router {
         echo "\n______\n";
         // if(self::matchRoute($url)) { // Проверяем совпадение URL с маршрутами.
             $controller = 'app\controllers\\' . self::upperCamelCase(self::$route['controller']);
+            debug(self::$route);
             echo "\n___controller___\n";
             debug($controller);
             echo "\n______\n";
