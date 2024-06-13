@@ -28,7 +28,6 @@ class Router {
     // Метод для сопоставления URL с маршрутами.
     private static function matchRoute($url) : bool
     {
-        debug(self::$routes);
         foreach(self::$routes as $pattern => $route) {
             if(preg_match("#$pattern#i", $url, $matches)){ // Используем preg_match для сопоставления URL с шаблоном маршрута.
                 foreach($matches as $key => $value) {
