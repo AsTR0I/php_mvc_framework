@@ -12,4 +12,10 @@
             echo 'Main::index';
         }
 
+        public function actionAction()
+        {
+            echo $this -> route;
+            echo 'Main::action';
+        }
+
     }
