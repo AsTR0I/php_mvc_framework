@@ -69,7 +69,7 @@ class Router {
                     echo 'Method ' . $action . ' not found in controller ' . $controller;
                 }
             } else {
-                echo 'Controller ' . $controller . ' not found';
+                echo "\nController ' . $controller . ' not found\n";
             }
         // } else {
             // http_response_code(404); // Устанавливаем код ответа 404, если маршрут не найден.

@@ -31,4 +31,4 @@ Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 debug(Router::getRoutes());
 
 // Диспетчеризуем маршрут с помощью статического метода dispatch класса Router.
-debug(Router::dispatch($query));
+Router::dispatch($query);
