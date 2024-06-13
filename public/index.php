@@ -14,7 +14,7 @@ define("APP", dirname(__DIR__) . '/app');
 require '../vendor/libs/functions.php';
 
 spl_autoload_register(function ($class) {
-    $file = ROOT . '/' .str_replace('\\','/',$class) . '.php';
+    $file = ROOT . '/' . str_replace('\\','/',$class) . '.php';
     if(is_file($file)){
         require_once ($file);
     }
@@ -31,4 +31,4 @@ Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 debug(Router::getRoutes());
 
 // Диспетчеризуем маршрут с помощью статического метода dispatch класса Router.
-Router::dispatch($query);
+debug(Router::dispatch($query));

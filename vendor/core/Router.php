@@ -26,7 +26,7 @@ class Router {
     }
 
     // Метод для сопоставления URL с маршрутами.
-    private static function matchRoute($url) : bool
+    private static function matchRoute($url)
     {
         foreach(self::$routes as $pattern => $route) {
             if(preg_match("#$pattern#i", $url, $matches)){ // Используем preg_match для сопоставления URL с шаблоном маршрута.
@@ -49,6 +49,9 @@ class Router {
     // Метод для обработки маршрута и выполнения соответствующего действия.
     public static function dispatch($url)
     {
+        echo "\n___URL___\n";
+        echo $url;
+        echo "\n______\n";
         if(self::matchRoute($url)) { // Проверяем совпадение URL с маршрутами.
             $controller = 'app\controllers\\' . self::upperCamelCase(self::$route['controller']);
             
@@ -56,7 +59,7 @@ class Router {
             if(class_exists($controller)) {
                 $controllerObj = new $controller(self::$route);
                 $action = self::$route['action'] . 'Action';
-                
+                debug($action);
                 // Проверяем существование метода в контроллере.
                 if(method_exists($controllerObj, $action)) {
                     $controllerObj->$action();
