@@ -52,9 +52,11 @@ class Router {
         echo "\n___URL___\n";
         echo $url;
         echo "\n______\n";
-        if(self::matchRoute($url)) { // Проверяем совпадение URL с маршрутами.
+        // if(self::matchRoute($url)) { // Проверяем совпадение URL с маршрутами.
             $controller = 'app\controllers\\' . self::upperCamelCase(self::$route['controller']);
-            
+            echo "\n___controller___\n";
+            debug($controller);
+            echo "\n______\n";
             // Проверяем существование класса контроллера.
             if(class_exists($controller)) {
                 $controllerObj = new $controller(self::$route);
@@ -69,10 +71,10 @@ class Router {
             } else {
                 echo 'Controller ' . $controller . ' not found';
             }
-        } else {
-            http_response_code(404); // Устанавливаем код ответа 404, если маршрут не найден.
-            include '404.html'; // Выводим страницу с сообщением об ошибке.
-        }
+        // } else {
+            // http_response_code(404); // Устанавливаем код ответа 404, если маршрут не найден.
+            // include '404.html'; // Выводим страницу с сообщением об ошибке.
+        // }
     }
 
     // Преобразует строку в формат UpperCamelCase.
