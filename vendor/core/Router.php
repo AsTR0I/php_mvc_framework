@@ -56,10 +56,10 @@ class Router {
     {
         if(self::matchRoute($url)) { // Проверяем совпадение URL с маршрутами.
             $controller = 'app\controllers\\' . self::upperCamelCase(self::$route['controller']);
+            debug(self::$route);
             // если controller найден в app/controllers
             if(class_exists($controller)) {
                 $controllerObj = new $controller(self::$route);
-                debug(self::$route);
                 $action = self::$route['action'] . 'Action';
                 if(method_exists($controllerObj, $action)) {
                     $controllerObj -> $action();
