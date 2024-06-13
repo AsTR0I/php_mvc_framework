@@ -30,7 +30,7 @@ class Router {
     {
         foreach(self::$routes as $pattern => $route) {
             if(preg_match("#$pattern#i", $url, $matches)){ // Используем preg_match для сопоставления URL с шаблоном маршрута.
-                // debug($matches); // Выводим отладочную информацию о совпавших подстроках.
+                debug($matches); // Выводим отладочную информацию о совпавших подстроках.
                 foreach($matches as $key => $value) {
                     if(is_string($key)){
                         $route[$key] = $value;
@@ -59,6 +59,7 @@ class Router {
             // если controller найден в app/controllers
             if(class_exists($controller)) {
                 $controllerObj = new $controller(self::$route);
+                debug(self::$route);
                 $action = self::$route['action'] . 'Action';
                 if(method_exists($controllerObj, $action)) {
                     $controllerObj -> $action();
