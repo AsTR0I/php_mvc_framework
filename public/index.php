@@ -7,8 +7,8 @@ use vendor\core\Router;
 $query = rtrim($_SERVER['QUERY_STRING'], '/');
 
 define("WWW", __DIR__);
-define("ROOT", dirname(__DIR__));
 define('CORE', dirname(__DIR__) . '/vendor/core');
+define("ROOT", dirname(__DIR__));
 define("APP", dirname(__DIR__) . '/app');
 
 require '../vendor/libs/functions.php';
