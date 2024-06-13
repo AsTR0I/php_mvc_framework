@@ -16,6 +16,7 @@ define("APP", dirname(__DIR__) . '/app');
 require '../vendor/libs/functions.php';
 
 spl_autoload_register(function ($class) {
+    echo $class;
     $file = ROOT . '/' .str_replace('\\','/',$class) . '.php';
     if(is_file($file)){
         require_once ($file);
